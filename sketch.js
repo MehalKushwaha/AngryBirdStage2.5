@@ -1,10 +1,12 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
+const Constraint=Matter.Constraint;
 
 var engine, world;
 var box1, pig1;
 var backgroundImg,platform;
+var constraintLog;
 
 function preload() {
     backgroundImg = loadImage("sprites/bg.png");
@@ -35,6 +37,13 @@ function setup(){
     log5 = new Log(870,120,150, -PI/7);
 
     bird = new Bird(100,100);
+    constraintLog=new Log(230,180,80,PI/2);
+    chain=new Chain(bird.body,constraintLog.body);
+
+
+    //JSON=Java Script Object Notion
+    
+   
 
 }
 
@@ -58,8 +67,13 @@ function draw(){
     box5.display();
     log4.display();
     log5.display();
+    
 
     bird.display();
     platform.display();
+    constraintLog.display();
+    chain.display();
+
+    
 }
 // Mehal Kushwaha
