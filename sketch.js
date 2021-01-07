@@ -38,7 +38,7 @@ function setup(){
 
     bird = new Bird(100,100);
     constraintLog=new Log(230,180,80,PI/2);
-    chain=new Chain(bird.body,constraintLog.body);
+    sling=new Slingshot (bird.body,{x:200,y:100});
 
 
     //JSON=Java Script Object Notion
@@ -72,8 +72,15 @@ function draw(){
     bird.display();
     platform.display();
     constraintLog.display();
-    chain.display();
+    sling.display();
 
     
 }
 // Mehal Kushwaha
+function mouseDragged(){
+    Matter.Body.setPosition(bird.body,{x:mouseX,y:mouseY});
+}
+function mouseRealeased(){
+    sling.fly();
+    
+}
